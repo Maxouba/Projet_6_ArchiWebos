@@ -1,0 +1,298 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+:root {
+    --bckg-color: #FFFEF8;
+	--black-color: #000000;
+	--title-color: #B1663C;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/** end reset css**/
+body {
+	max-width: 1140px;
+	margin:auto;
+	font-family: 'Work Sans' ;
+	font-size: 14px;
+	background-color: var(--bckg-color);
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0
+}
+
+section {
+	margin: 50px 0
+}
+
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: var(--title-color)
+}
+
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	letter-spacing: 0.1em;
+;
+}
+
+h2{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154;
+	margin-top : 1em;
+}
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+
+}
+nav li {
+	padding: 0 10px;
+	font-size: 1.2em;
+}
+
+li:hover {
+	color: var(--title-color);
+}
+
+#introduction {
+	display: flex;
+	align-items: center;
+}
+
+#introduction figure {
+	flex: 1
+}
+
+#introduction img {
+	display: block;
+	margin: auto;
+	width: 80%;
+}
+
+#introduction article {
+	flex: 1
+}
+#introduction h2 {
+	margin-bottom: 1em;
+}
+
+#introduction p {
+	margin-bottom: 0.5em;
+}
+
+#portfolio h2 {
+	text-align: center;
+}
+
+.gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+.gallery img {
+	width: 100%;
+}
+
+#contact, #login {
+	width: 50%;
+	margin: auto;
+}
+
+#contact > *, #login > * {
+	text-align: center;
+
+}
+
+#contact h2, #login h2{
+	margin-bottom: 20px;
+}
+
+#contact form, #login form {
+	text-align: left;
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+}
+
+#contact input , #login input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact label, 
+#login label {
+	margin: 2em 0 1em 0;
+}
+
+#contact textarea, #login  textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#login {
+	margin-bottom: 20em;
+}
+
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+
+footer nav ul {
+	display: flex;
+	justify-content: flex-end;
+	margin: 2em
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+
+#forgot_password {
+	text-decoration : underline;
+}
+
+#custom_bold a{
+	font-weight: 600;
+}
+
+.fa-pen-to-square {
+	color: var(--black-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	height: 15px;
+	width: 15px;
+	margin-right: 1em;
+	margin-left: 2em;
+}
+
+/* Bouton pour la popup */
+
+.popup_button{
+	border: none;
+	background-color: var(--bckg-color);
+	cursor: pointer;
+	box-sizing: border-box;
+	display: flex;
+	margin-top: 1em;
+}
+
+/* Style pour la popup */
+
+.project_title{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 3em;
+}
+
+#popup_overlay.open{
+	display: block !important;
+}
+
+
+.popup_content{
+	z-index: 1;
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	border-radius: 10px;
+	width: 43%;
+    flex-direction: column;
+    padding: 35px;
+    box-sizing: border-box;
+	background: #FFFFFF;
+
+}
+
+.popup_title{
+	font-family: 'Work Sans';
+	color: var(--black-color);
+	font-size: 26px;
+	font-weight: 400;
+	display: flex;
+	justify-content: center;
+}
+
+.fa-xmark{
+	position: absolute;
+	top: 26px;
+	right: 30px;
+
+}
