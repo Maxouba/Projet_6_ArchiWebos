@@ -1,70 +1,10 @@
 // script.js
-const images_gallery = [
-    {
-        "images" : "abajour-tahina.png",
-        "tagLine" : "Abajour"
-    },
-    {
-        "images" : "appartement-paris-v.png",
-        "tagLine" : "Salon d'un <span>appartement parisien lumineux</span>"      
-    },
-    {
-        "images" : "appartement-paris-x.png",
-        "tagLine" : "Cuisine d'un <span>appartement parisien</span>"      
-    },
-    {
-        "images" : "appartement-paris-xviii.png",
-        "tagLine" : "Chambre d'un <span>appartement parisien</span>"      
-    },
-    {
-        "images" : "bar-lullaby-paris.png",
-        "tagLine" : "<span>Bar Lullaby à Paris</span> avec un comptoir de couleur bleu"      
-    },
-    {
-        "images" : "hotel-first-arte-new-delhi.png",
-        "tagLine" : "Salle du restaurant de <span>l'hôtel First Arte New-Delhi</span>"      
-    },
-    {
-        "images" : "la-balisiere.png",
-        "tagLine" : "Accueil de l'hôtel <span>La Balisière à Biarritz</span>"      
-    },
-    {
-        "images" : "le-coteau-cassis.png",
-        "tagLine" : "Chambre d'une <span>villa dans les hauteurs de Saint Tropez</span>"      
-    },
-    {
-        "images" : "le-coteau-cassis.png",
-        "tagLine" : "Chambre d'une <span>villa dans les hauteurs de Saint Tropez</span>"      
-    },
-    {
-        "images" : "restaurant-sushisen-londres.png",
-        "tagLine" : "Restaurant Sushisen à Londres"      
-    },
-    {
-        "images" : "restaurant-sushisen-londres.png",
-        "tagLine" : "Restaurant Sushisen à Londres"      
-    },
-    {
-        "images" : "structures-thermopolis.png",
-        "tagLine" : "Structues en thermopolis"     
-    },
-    {
-        "images" : "villa-ferneze.png",
-        "tagLine" : "<span>Villa Ferneze</span> en Italie"     
-    },
-];
-
-newImg();
 
 const galleryImg = document.querySelector('all_gallery')
 const numberOfImg = img.length;
 
-function newImg(){
-    const gallery = document.querySelector(".gallery");
-    for (let index = 0; index <img.length; index++) {
-    }
-}
 
+//appel réseau au serveur afin de récupérer les données des images du serveur
 async function getProjects() {
     return fetch("http://localhost:5678/api/works")
         .then((response) => response.json())
@@ -74,9 +14,33 @@ async function getProjects() {
         })
 }
 
+// cette fontion est apellée pour traiter les images
 async function initProjects() {
     const projects = await getProjects();
-console.log(projects); }
+    // Parcourir les données des images
+    for (let index = 0; index < projects.length; index++) {
+        const project = projects[index];
+
+        // Créer l'élément `img`
+        const img = document.createElement('img');
+        img.src = project.image_url; // Remplacer "image_url" par l'attribut de l'URL de l'image dans vos données
+        img.alt = project.title; // Remplacer "title" par l'attribut du titre de l'image dans vos données
+
+        // Créer l'élément `figcaption`
+        const figcaption = document.createElement('figcaption');
+        figcaption.textContent = project.title; // Remplacer "title" par l'attribut du titre de l'image dans vos données
+
+        // Ajouter les éléments à la figure
+        const figure = document.createElement('figure');
+        figure.appendChild(img);
+        figure.appendChild(figcaption);
+
+        // Ajouter la figure à la galerie
+        galleryImg.appendChild(figure);
+    }
+
+    console.log(projects);
+}
 
 initProjects()
 
