@@ -229,7 +229,7 @@ a {
 	font-weight: 600;
 }
 
-.fa-pen-to-square {
+.project_title .fa-pen-to-square {
 	color: var(--black-color);
     display: flex;
     justify-content: center;
@@ -240,6 +240,21 @@ a {
 	margin-left: 2em;
 }
 
+figcaption {
+	margin-top: 7px;
+}
+
+/* Filtre pour l'affichage des projets */
+
+.project_filter{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 38px;
+	gap: 10px;
+}
+
 /* Bouton pour la popup */
 
 .popup_button{
@@ -248,7 +263,6 @@ a {
 	cursor: pointer;
 	box-sizing: border-box;
 	display: flex;
-	margin-top: 1em;
 }
 
 /* Style pour la popup */
@@ -259,6 +273,11 @@ a {
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 3em;
+	height: 36px;
+}
+
+.project_title h2{
+	margin-top: 0;
 }
 
 #popup_overlay.open{
@@ -295,4 +314,27 @@ a {
 	top: 26px;
 	right: 30px;
 
+}
+
+/* bandeau noir au-dessus du header pour le mode édition */
+
+.edition_mode{
+	display: flex;
+	height: 59px;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--black-color);
+	gap: 21px;
+}
+
+.hidden {
+	display: none;
+}
+
+.edition_mode .fa-pen-to-square{
+	color: #FFFFFF;
+}
+
+.edition_mode p {
+	color: #FFFFFF;
 }

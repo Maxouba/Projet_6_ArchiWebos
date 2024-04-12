@@ -1,8 +1,6 @@
-// script.js
-
-const galleryImg = document.querySelector('all_gallery')
-const numberOfImg = img.length;
-
+const galleryImg = document.querySelector('.gallery');
+const token = localStorage.getItem('token');
+const editionMode = document.querySelector('.edition_mode')
 
 //appel réseau au serveur afin de récupérer les données des images du serveur
 async function getProjects() {
@@ -14,7 +12,7 @@ async function getProjects() {
         })
 }
 
-// cette fontion est apellée pour traiter les images
+//cette fontion est apellée pour traiter les images
 async function initProjects() {
     const projects = await getProjects();
     // Parcourir les données des images
@@ -23,20 +21,21 @@ async function initProjects() {
 
         // Créer l'élément `img`
         const img = document.createElement('img');
-        img.src = project.image_url; // Remplacer "image_url" par l'attribut de l'URL de l'image dans vos données
-        img.alt = project.title; // Remplacer "title" par l'attribut du titre de l'image dans vos données
+        img.src = project.imageUrl;
+        img.alt = project.title;
 
         // Créer l'élément `figcaption`
         const figcaption = document.createElement('figcaption');
-        figcaption.textContent = project.title; // Remplacer "title" par l'attribut du titre de l'image dans vos données
+        figcaption.textContent = project.title;
 
-        // Ajouter les éléments à la figure
+        // Ajout des éléments à la figure existante
         const figure = document.createElement('figure');
         figure.appendChild(img);
         figure.appendChild(figcaption);
-
-        // Ajouter la figure à la galerie
-        galleryImg.appendChild(figure);
+        
+        // Récupérer l'élément gallery
+        const gallery = document.querySelector('.gallery');
+        gallery.appendChild(figure);
     }
 
     console.log(projects);
@@ -49,3 +48,6 @@ function togglePopup(){
     popup.classList.toggle("open");
 }
 
+if (token) {
+    editionMode.classList.remove('hidden')
+}

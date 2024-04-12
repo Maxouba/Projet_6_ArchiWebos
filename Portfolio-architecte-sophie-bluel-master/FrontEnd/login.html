@@ -11,6 +11,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="login.js" defer></script>
 </head>
 <body>
 <header>
@@ -28,11 +29,11 @@
 <main>
     <section id="login">
 		<h2>Log In</h2>
-		<form action="#" method="post">
+		<form class="login_form" action="#" method="post">
 			<label for="email">Email</label>
-			<input type="email" name="email" id="email">
+			<input type="email" name="email" id="email" required>
 			<label for="pass">Mot de passe</label>
-            <input type="password" id="pass" name="password" minlength="8" required>
+            <input type="password" id="pass" name="password" required>
 			<input type="submit" value="Se connecter">
         	</form>
             <p id="forgot_password">Mot de passe oublié</p>

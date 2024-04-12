@@ -10,8 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
     <meta name="description" content="">
     <link rel="stylesheet" href="./assets/style.css">
+    <script src="script.js" defer></script>
   </head>
   <body>
+    <div class="edition_mode hidden">
+      <i class="fa-solid fa-pen-to-square"></i>
+      <p>
+        Mode édition
+      </p>
+    </div>
     <header>
       <a href="index.html">
         <h1>Sophie Bluel<span>Architecte d'intérieur</span></h1></a>
@@ -65,11 +72,16 @@
           </button>
         </div>
         
+        <div class="project_filter">
+          <ul>
+            <li>Tous</li>
+            <li>Objets</li>
+            <li>Appartements</li>
+            <li>Hotels & restaurants</li>
+          </ul>
+        </div>
+
         <div class="gallery">
-          <figure>
-            <img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-            <figcaption>Abajour Tahina</figcaption>
-          </figure>
         </div>
       </section>
 
@@ -95,7 +107,6 @@
         </ul>
       </nav>
     </footer>
-  <script src="script.js"></script>
   </body>
   
 </html>
