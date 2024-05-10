@@ -26,7 +26,8 @@
         <ul>
           <li>projets</li>
           <li>contact</li>
-          <li><a href="login.html">login</a></li>
+          <li id="login_button"><a href="login.html">login</a></li>
+          <li class="hidden" id="logout_button"><a href="index.html">logout</a></li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
         </ul>
       </nav>
@@ -60,13 +61,15 @@
           <div class="popup_content">
           <a href="javascript:void(0)" onclick="togglePopup()"><i class="fa-solid fa-xmark"></i></a>
               <h2 class="popup_title">Galerie photo</h2>
+          <div class="admin_gallery">
+          </div>
           </div>
       </section>
 
       <section id="portfolio">
         <div class="project_title">
           <h2>Mes Projets</h2>
-          <button class="popup_button" onclick="togglePopup()">
+          <button class="popup_button hidden" onclick="togglePopup()">
           <i class="fa-regular fa-pen-to-square"></i>
           <p>modifier</p>
           </button>
@@ -74,10 +77,10 @@
         
         <div class="project_filter">
           <ul>
-            <li>Tous</li>
-            <li>Objets</li>
-            <li>Appartements</li>
-            <li>Hotels & restaurants</li>
+            <li data-id="0">Tous</li>
+            <li data-id="1">Objets</li>
+            <li data-id="2">Appartements</li>
+            <li data-id="3">Hotels & restaurants</li>
           </ul>
         </div>
 

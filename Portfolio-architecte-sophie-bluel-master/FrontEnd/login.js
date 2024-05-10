@@ -1,4 +1,6 @@
 const loginForm = document.querySelector('.login_form');
+const button = document.querySelector('.login_form button[type="submit"]');
+
 
 loginForm.addEventListener('submit',function(event){
     // Retirer la requête de changement de page quand on valide le formulaire de connexion
@@ -26,9 +28,11 @@ loginForm.addEventListener('submit',function(event){
                 // Redirection vers la page index.html
                 window.location.href = "./index.html"
                 console.log("connect")
+                
             } else {
                 console.error("Erreur dans l’identifiant ou le mot de passe")
-                
             }
         })
 })
+
+const words = ['spray', 'elite', 'exuberant', 'destruction', 'present'];

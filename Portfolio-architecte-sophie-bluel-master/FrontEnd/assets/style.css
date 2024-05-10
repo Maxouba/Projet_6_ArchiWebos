@@ -38,6 +38,7 @@ body {
     --bckg-color: #FFFEF8;
 	--black-color: #000000;
 	--title-color: #B1663C;
+	--green-color : #1D6154;
 }
 
 ol, ul {
@@ -60,7 +61,6 @@ table {
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
@@ -70,7 +70,11 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+}
+
+header, main, footer {
+	max-width: 1140px;
+	margin: 50px auto;
 }
 
 section {
@@ -97,7 +101,7 @@ h2{
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
-	color: #1D6154;
+	color: var(--green-color);
 	margin-top : 1em;
 }
 nav ul {
@@ -111,9 +115,6 @@ nav li {
 	font-size: 1.2em;
 }
 
-li:hover {
-	color: var(--title-color);
-}
 
 #introduction {
 	display: flex;
@@ -202,7 +203,7 @@ input[type="submit"]{
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
-	background-color: #1D6154;
+	background-color: var(--green-color);
 	margin : 2em auto ;
 	width: 180px;
 	text-align: center;
@@ -247,13 +248,32 @@ figcaption {
 /* Filtre pour l'affichage des projets */
 
 .project_filter{
+	margin-bottom: 50px;
+}
+
+.project_filter ul{
+	height: 37px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	align-items: center;
-	height: 38px;
 	gap: 10px;
+	align-items: center;
 }
+
+.project_filter li {
+	border : solid 1px;
+	border-color: var(--green-color);
+	border-radius: 60px;
+	padding: 9px 25px 9px 25px;
+	color: var(--green-color);
+}
+
+.project_filter li:hover{
+	background-color: var(--green-color);
+	color: white;
+}
+
+
 
 /* Bouton pour la popup */
 
@@ -280,9 +300,9 @@ figcaption {
 	margin-top: 0;
 }
 
-#popup_overlay.open{
-	display: block !important;
-}
+#popup_overlay {
+	display: none; /* Masquer la popup par défaut */
+  }
 
 
 .popup_content{
