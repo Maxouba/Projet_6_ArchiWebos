@@ -199,7 +199,7 @@ nav li {
 	margin-bottom: 20em;
 }
 
-input[type="submit"]{
+input[type=submit] {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -208,6 +208,22 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+}
+
+.style_button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: var(--green-color);
+	margin : 2em auto ;
+	width: 237px;
+	height: 36px;
+	text-align: center;
+	border-radius: 60px ;
+	border: none;
 }
 
 footer nav ul {
@@ -275,7 +291,7 @@ figcaption {
 
 
 
-/* Bouton pour la popup */
+/* Bouton pour la modale */
 
 .popup_button{
 	border: none;
@@ -283,9 +299,10 @@ figcaption {
 	cursor: pointer;
 	box-sizing: border-box;
 	display: flex;
+	align-items: center;
 }
 
-/* Style pour la popup */
+/* Style pour la modale */
 
 .project_title{
 	display: flex;
@@ -298,10 +315,11 @@ figcaption {
 
 .project_title h2{
 	margin-top: 0;
+	height: 100%;
 }
 
 #popup_overlay {
-	display: none; /* Masquer la popup par défaut */
+	display: none; /* Masquer la modale par défaut */
   }
 
 
@@ -312,12 +330,10 @@ figcaption {
     left: 50%;
     transform: translate(-50%, -50%);
 	border-radius: 10px;
-	width: 43%;
-    flex-direction: column;
-    padding: 35px;
+	width: 45%;
+    padding: 60px 105px 45px 105px;
     box-sizing: border-box;
 	background: #FFFFFF;
-
 }
 
 .popup_title{
@@ -327,6 +343,7 @@ figcaption {
 	font-weight: 400;
 	display: flex;
 	justify-content: center;
+	margin-bottom: 46px;
 }
 
 .fa-xmark{
@@ -334,6 +351,37 @@ figcaption {
 	top: 26px;
 	right: 30px;
 
+}
+
+.admin_gallery{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 9px;
+    grid-row-gap: 29px;
+	margin-bottom: 67px;
+}
+
+.admin_gallery img{
+	height: 102.57px;
+}
+
+.fa-trash-can{
+	display: flex;
+	position: absolute;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--black-color);
+	color: var(--bckg-color);
+	padding: 3px 4px;
+	border-radius: 2px;
+	margin-top: 6px;
+	margin-left: 50px;
+	cursor: pointer;
+}
+
+.popup_content hr{
+	color: #B3B3B3;
+	margin-bottom: 38px;
 }
 
 /* bandeau noir au-dessus du header pour le mode édition */
