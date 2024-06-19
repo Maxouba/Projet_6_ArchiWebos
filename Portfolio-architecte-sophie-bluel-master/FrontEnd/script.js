@@ -8,17 +8,16 @@ const loginButton = document.querySelector("#login_button");
 const modifButton = document.querySelector(".popup_button");
 const listeFilter = document.querySelectorAll(".project_filter li");
 let projects = [];
-const trashAll = document.querySelectorAll(".fa-trash-can");
 
 //appel réseau au serveur afin de récupérer les données des images du serveur
 async function getProjects() {
   return fetch("http://localhost:5678/api/works")
     .then((response) => response.json())
     .then((works) => {
-      let worksData = works;
       return works;
     });
 }
+
 
 //Cette fontion est apellée pour traiter les images
 async function initProjects() {
@@ -116,7 +115,7 @@ listeFilter.forEach((element) => {
       gallery.appendChild(figure);
     }
   });
-});
+})
 
 //Affichage des projets dans la modale
 
@@ -138,4 +137,134 @@ function displayGallerypopup() {
     div.appendChild(img);
     galleryPopup.appendChild(div)
   });
+  deleteProject()
 }
+
+
+//Suppression d'un projet dans la modale
+
+function deleteProject() {
+  const trashAll = document.querySelectorAll(".fa-trash-can");
+  trashAll.forEach(trash => {
+    trash.addEventListener("click",(e)=>{
+      const id = trash.id
+      console.log(id)
+      const init = {
+        method:"DELETE",
+        headers:{
+          "content-Type":"application/json",
+          "Authorization":"Bearer " + token
+      },
+      }
+      fetch("http://localhost:5678/api/works/" + id,init)
+      .then((response)=>{
+        if(!response.ok) {
+          console.log("La suppression n'a pas fonctionné")
+      }
+      return response.json()
+      })
+      .then((data)=>{
+        console.log("La suppression a réussi, voici la data :" ,data)
+        displayGallerypopup
+      })
+    })
+  })
+}
+
+//Faire apparaître la deuxième modale pour ajouter une photo
+
+const btnAddModal = document.querySelector(".popup_content .style_button")
+const modalAddphoto = document.querySelector(".popup_add_projet")
+const popupDelete = document.querySelector(".popup_delete_project")
+const arrowLeft = document.querySelector(".fa-arrow-left")
+
+function displayAddModal() {
+  btnAddModal.addEventListener("click",()=>{
+    modalAddphoto.classList.remove('hidden');
+    popupDelete.classList.add('hidden');
+  })
+}
+
+displayAddModal()
+
+// Faire la prévisualisation de l'image
+
+const previewImg = document.querySelector(".popup_add_projet img")
+const inputFile = document.querySelector(".popup_add_projet input")
+const labelFile = document.querySelector(".popup_add_projet label")
+const iconFile = document.querySelector(".popup_add_projet .fa-image")
+const pFile = document.querySelector(".popup_add_projet p")
+const containerFile = document.querySelector(".containerFile")
+
+// Ecouter les changements sur l'input file
+inputFile.addEventListener("change",()=>{
+  //Récuperer ce qu'il y a dans l'input
+  const file = inputFile.files[0]
+  console.log(file);
+  if(file) {
+    previewImg.classList.remove('hidden')
+    previewImg.src = URL.createObjectURL(file)
+    containerFile.classList.add('hidden')
+  }
+})
+
+
+async function getCategories(){
+  return fetch("http://localhost:5678/api/categories")
+  .then((response) => response.json())
+  .then((categories) => {
+    return categories;
+  });
+}
+
+//Créer une liste de catégorie dans l'input select
+async function dislayCategoryModal(){
+  const select = document.querySelector(".popup_add_projet select")
+  const categories = await getCategories()
+  categories.forEach(category => {
+    //Créer une option
+    const option = document.createElement("option")
+    //Attribuer une valeur à l'option quand on va cliquer sur la catégorie
+    option.value = category.id
+    option.textContent = category.name
+    select.appendChild(option)
+  })
+}
+dislayCategoryModal()
+
+
+
+
+//Faire un POST pour ajouter un projet
+
+const form = document.querySelector(".popup_add_projet form")
+
+form.addEventListener("submit", async (e)=>{
+  //Retirer le comportement par défaut
+  e.preventDefault()
+  const formData = new FormData()
+  const title = document.querySelector(".popup_add_projet #title").value
+  const category = document.querySelector(".popup_add_projet #category").value
+  formData.append("title", title)
+  formData.append("category", Number(category))
+  formData.append("image", inputFile.files[0])
+  console.log(title)
+  console.log(category)
+  console.log(inputFile.files[0])
+
+  fetch("http://localhost:5678/api/works",{
+  method : "POST",
+  body:formData,
+  headers:{
+    "content-Type":"application/json",
+    "Authorization":"Bearer " + token
+  }
+})
+  .then((response) => response.json())
+  .then(data => {
+    console.log("voici la photo ajoutée", data)
+    displayGallerypopup();
+    displayAddModal()
+
+  })
+})

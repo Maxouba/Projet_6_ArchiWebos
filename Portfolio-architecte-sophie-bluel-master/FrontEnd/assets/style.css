@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import "modalAdd.project.css";
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -350,7 +351,8 @@ figcaption {
 	position: absolute;
 	top: 26px;
 	right: 30px;
-
+	cursor: pointer;
+	font-size: 12px;
 }
 
 .admin_gallery{
@@ -396,7 +398,7 @@ figcaption {
 }
 
 .hidden {
-	display: none;
+	display: none!important;
 }
 
 .edition_mode .fa-pen-to-square{
@@ -406,3 +408,4 @@ figcaption {
 .edition_mode p {
 	color: #FFFFFF;
 }
+

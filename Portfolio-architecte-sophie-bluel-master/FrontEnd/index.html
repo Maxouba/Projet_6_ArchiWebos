@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
     <meta name="description" content="">
     <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/modalAddproject.css">
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -59,12 +60,35 @@
 
       <section id="popup_overlay">
           <div class="popup_content">
+            <div class="popup_delete_project">
             <a onclick="togglePopup()"><i class="fa-solid fa-xmark"></i></a>
               <h2 class="popup_title">Galerie photo</h2>
             <div class="admin_gallery">
             </div>
             <hr />
             <button class="style_button">Ajouter un projet</button>
+            </div>
+            <div class="popup_add_projet hidden">
+              <i class = "fa-solid fa-arrow-left"></i>
+              <a onclick="togglePopup()"><i class="fa-solid fa-xmark"></i></a>
+              <h2 class="popup_title">Ajout photo</h2>
+              <form>
+                <div class="containerFile">
+                <span><i class="fa-regular fa-image"></i></span>
+                <label for="test" id="file"name="image">+Ajouter photo</label>
+                <input class="hidden" type="file" id="test">
+                <p>jpg, png : 4mo max</p>
+                </div>
+                <img class="hidden" "src="#" alt="Aperçu de l'image">
+                <label for="title">Titre</label>
+                <input type="text" id="title" name="title">
+                <label for="category">Catégorie</label>
+                <select name="category" id="category">
+                  <option disabled selected></option>
+                </select>
+                <button class="validate_button">Valider</button>
+              </form>
+            </div> 
           </div>
       </section>
 
