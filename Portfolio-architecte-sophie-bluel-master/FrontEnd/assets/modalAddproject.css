@@ -19,7 +19,7 @@
     top : 0px;
     right: 0px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 20px;
 }
 
 form {
@@ -51,9 +51,16 @@ form {
     flex-direction: column;
     align-items: center;
     background-color: #E8F1F6;
-    height: 169px;
+    height: auto;
     margin-bottom: 30px;
     border-radius: 3px;
+}
+
+.containerFile p{
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 11,73px;
+    margin-bottom: 19px;
 }
 
 .fa-image {
@@ -64,4 +71,40 @@ form {
     color: #B9C5CC;
     margin-top: 22px;
     margin-bottom: 12px;
+}
+
+.button_green {
+    background-color : var(--green-color);
+}
+
+.button_grey{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+    background-color : #A7A7A7;
+	margin : 2em auto ;
+	width: 237px;
+	height: 36px;
+	text-align: center;
+	border-radius: 60px ;
+	border: none;
+}
+
+input, select {
+    height: 51px;
+    padding-left: 16px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16;
+    color: var(--textinputcolor);
+    border : none;
+    box-shadow: 0px 4px 14px 0px #00000017;
+}
+
+.test{
+    margin-top: 21px;
+    margin-bottom: 10px;
 }

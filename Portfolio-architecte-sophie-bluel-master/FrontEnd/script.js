@@ -60,6 +60,8 @@ function togglePopup() {
   }
 }
 
+
+
 // Afficher les éléments quand un utilisateur est connecté
 if (token) {
   editionMode.classList.remove('hidden');
@@ -233,8 +235,6 @@ async function dislayCategoryModal(){
 dislayCategoryModal()
 
 
-
-
 //Faire un POST pour ajouter un projet
 
 const form = document.querySelector(".popup_add_projet form")
@@ -256,15 +256,44 @@ form.addEventListener("submit", async (e)=>{
   method : "POST",
   body:formData,
   headers:{
-    "content-Type":"application/json",
     "Authorization":"Bearer " + token
   }
 })
-  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    return response.json()
+  })
   .then(data => {
     console.log("voici la photo ajoutée", data)
     displayGallerypopup();
     displayAddModal()
-
   })
+})
+
+//Fonction vérifiant si tous les inputs sont remplis
+
+function FormCompleted(){
+  const buttonValidate = document.querySelector(".popup_add_projet button")
+  form.addEventListener("input",()=>{
+    if(title.value && category.value && previewImg.src) {
+      buttonValidate.disabled = false
+      buttonValidate.classList.remove('button_grey')
+      buttonValidate.classList.add('style_button')
+    }
+    else{
+      buttonValidate.disabled = true
+      buttonValidate.classList.add('button_grey')
+      buttonValidate.classList.remove('style_button')
+    }
+  })
+}
+FormCompleted()
+
+const arrowlastModal = document.querySelector(".popup_add_projet .fa-arrow-left")
+
+arrowlastModal.addEventListener("click",()=>{
+  const firstModal = document.querySelector(".popup_delete_project");
+  const lastModal = document.querySelector(".popup_add_projet");
+  firstModal.classList.remove('hidden')
+  lastModal.classList.add('hidden')
 })

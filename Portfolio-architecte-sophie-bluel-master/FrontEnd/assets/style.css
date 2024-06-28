@@ -40,6 +40,8 @@ body {
 	--black-color: #000000;
 	--title-color: #B1663C;
 	--green-color : #1D6154;
+	--textinputcolor : #444444;
+
 }
 
 ol, ul {
@@ -321,8 +323,8 @@ figcaption {
 
 #popup_overlay {
 	display: none; /* Masquer la modale par défaut */
+	background-color: #000000;
   }
-
 
 .popup_content{
 	z-index: 1;
@@ -331,7 +333,7 @@ figcaption {
     left: 50%;
     transform: translate(-50%, -50%);
 	border-radius: 10px;
-	width: 45%;
+	width: 43%;
     padding: 60px 105px 45px 105px;
     box-sizing: border-box;
 	background: #FFFFFF;
@@ -352,7 +354,7 @@ figcaption {
 	top: 26px;
 	right: 30px;
 	cursor: pointer;
-	font-size: 12px;
+	font-size: 20px;
 }
 
 .admin_gallery{

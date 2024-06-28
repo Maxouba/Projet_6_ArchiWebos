@@ -84,7 +84,8 @@ paths:
                     imageUrl:
                       type: string
                       example: "http://localhost:5678/images/abajour-tahina1651286843956.png"
-                    categoryId:
+                    
+                    oryId:
                       type: integer
                       format: int64
                       example: 1
