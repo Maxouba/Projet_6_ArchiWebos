@@ -2,8 +2,8 @@ Travail sur la conception du site portfolio d’une architecte d’intérieur.
 
 Le HTML et CSS sont déjà implémentés, je devais uniquement créer la page "login" et ajouter du Javascript pour ces différents éléments :
 
-La page de présentation des travaux de l'architecte (à partir du HTML fourni) ;
-La page de connexion de l'administrateur du site (le client) (code à créer de zéro) ;
+La page de présentation des travaux de l'architecte (à partir du HTML fourni)
+La page de connexion de l'administrateur du site (le client) (code à créer de zéro)
 La modale permettant d'uploader de nouveaux médias (code à créer from scratch).
 
 # Backend API - Sophie Bluel
