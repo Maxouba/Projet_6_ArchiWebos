@@ -8,13 +8,8 @@ Après avoir récupéré le REPO executez la commande `npm install` pour install
 
 Une fois les dépendances installées lancez le projet avec la commande `npm start`
 
-Compte de test pour Sophie Bluel
+Des identifiants (adresse email et mot de passe) sont nécessaires pour avoir les pages en mode éditeur
 
-```
-email: sophie.bluel@test.tld
-
-password: S0phie 
-```
 Lien pour voir la
 [documentation Swagger](http://localhost:5678/api-docs/)
 
